@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Login from './components/auth/Login'
 import NuevaCuenta from './components/auth/NuevaCuenta'
 import Proyectos from './components/proyectos'
+import ProyectoState from './context/proyectos/proyectoState'
+
 
 function App() {
   return (
-    <>
+    <ProyectoState>
     
       <Router>
         <Switch>
@@ -16,7 +18,7 @@ function App() {
         </Switch>
       </Router>
       <h1>MEARN Tasks</h1>
-    </>
+    </ProyectoState>
   );
 }
 
