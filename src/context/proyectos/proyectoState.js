@@ -49,7 +49,6 @@ const ProyectoState = props => {
     }
 
     const mostrarError = () => {
-        console.log('hola');
         dispatch({
             type: types.VALIDAR_FORMULARIO
         })
