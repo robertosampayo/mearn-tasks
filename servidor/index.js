@@ -27,6 +27,6 @@ app.get('/', (req,res) => {
 })
 
 // correr app
-app.listen(PORT, () =>{
+app.listen(PORT, '0.0.0.0' , () =>{
     console.log(`El servidor esta funcionando en el puerto ${PORT}`);
 })
