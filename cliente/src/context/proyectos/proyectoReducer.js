@@ -37,6 +37,11 @@ export default (state, action) => {
                 proyectos: state.proyectos.filter(proyecto => proyecto._id !== action.payload),
                 proyecto: null
             }  
+        case types.PROYECTO_ERROR:
+            return {
+                ...state,
+                mensaje: action.payload
+            }              
         default:
             return state;
     }

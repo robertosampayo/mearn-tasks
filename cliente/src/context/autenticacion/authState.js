@@ -12,7 +12,8 @@ const AuthState = props => {
         token: localStorage.getItem('token'),
         autenticado: null,
         usuario: null,
-        mensaje: null
+        mensaje: null,
+        cargando: true
 
     }
 
@@ -74,7 +75,7 @@ const AuthState = props => {
     const iniciarSesion = async datos => {
 
         try {
-            const respuesta = await clienteAxios.post('/api/auth', datos);
+            const respuesta = await clienteAxios.post(`/api/auth`, datos);
             dispatch({
                 type: types.LOGIN_EXITOSO,
                 payload: respuesta.data
@@ -87,7 +88,7 @@ const AuthState = props => {
             
             console.log (error);
             const alerta = {
-                msg: error.response.data.msg,
+                msg: error.response.data.msg ?? error.response ?? error,
                 categoria: 'alerta-error'
             }
 
@@ -113,6 +114,7 @@ const AuthState = props => {
                 autenticado: state.autenticado,
                 usuario: state.usuario,
                 mensaje: state.mensaje,
+                cargando: state.cargando,
                 registrarUsuario,
                 iniciarSesion,
                 usuarioAutenticado ,

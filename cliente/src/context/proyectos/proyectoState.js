@@ -3,7 +3,6 @@ import proyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer'
 import * as types from '../../types'
 import clienteAxios from '../../config/axios'
-import { uuid } from 'uuidv4'
 
 
 const ProyectoState = props => {
@@ -14,7 +13,8 @@ const ProyectoState = props => {
         proyectos: [],
         formulario : false,
         errorformulario: false,
-        proyecto: null
+        proyecto: null,
+        mensaje: null
     }
 
     // Dispatch para ejecutar las acciones
@@ -40,6 +40,16 @@ const ProyectoState = props => {
 
         } catch (error) {
             console.log(error);
+
+            const alerta = {
+                msg: 'Hubo un error',
+                categoria: 'alerta-error'
+            }
+
+            dispatch({
+                type: types.PROYECTO_ERROR,
+                payload: alerta
+            })
         }
     }
 
@@ -57,6 +67,16 @@ const ProyectoState = props => {
                 
         } catch (error) {
             console.log(error);
+
+            const alerta = {
+                msg: 'Hubo un error',
+                categoria: 'alerta-error'
+            }
+
+            dispatch({
+                type: types.PROYECTO_ERROR,
+                payload: alerta
+            })
         }
     }
 
@@ -75,11 +95,33 @@ const ProyectoState = props => {
         })
     }
 
-    const eliminarProyecto = proyectoId => {
-        dispatch({
-            type: types.ELIMINAR_PROYECTO,
-            payload: proyectoId           
-        })
+    const eliminarProyecto = async proyectoId => {
+
+
+        try {   
+
+            await clienteAxios.delete(`/api/proyectos/${proyectoId}`)
+
+            dispatch({
+                type: types.ELIMINAR_PROYECTO,
+                payload: proyectoId           
+            })
+
+        } catch (error) {
+            console.log(error);
+
+            const alerta = {
+                msg: 'Hubo un error',
+                categoria: 'alerta-error'
+            }
+
+            dispatch({
+                type: types.PROYECTO_ERROR,
+                payload: alerta
+            })
+        }
+
+
     }
 
     return (
@@ -89,6 +131,7 @@ const ProyectoState = props => {
                 proyectos: state.proyectos,
                 errorformulario: state.errorformulario,
                 proyecto: state.proyecto,
+                mensaje: state.mensaje,
                 mostrarFormulario,
                 obtenerProyectos,
                 agregarProyecto,

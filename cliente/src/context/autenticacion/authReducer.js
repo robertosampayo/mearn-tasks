@@ -11,14 +11,16 @@ export default (state, action) => {
             return {
                 ...state,
                 autenticado: true,
-                mensaje: null
+                mensaje: null,
+                cargando: false
             }
 
         case types.OBTENER_USUARIO:
             return {
                 ...state,
                 autenticado: true,
-                usuario: action.payload
+                usuario: action.payload,
+                cargando: false
             }
 
         
@@ -32,7 +34,8 @@ export default (state, action) => {
                 token: null,
                 usuario: null,
                 autenticado: null,
-                mensaje: action.payload
+                mensaje: action.payload,
+                cargando: false
             }
         default:
             return state;
