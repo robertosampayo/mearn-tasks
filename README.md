@@ -1,6 +1,8 @@
 # Project online: 🚀 [MEARN-TASK](https://angry-williams-68c23c.netlify.app/)
 
-## Available Scripts
+You can click on 'Registrate' and create a new account to login into the project, you will find a panel section where you could create new proyects and assign them new tasks. PD: the tasks section is saved in local storage by now
+
+## Available Scripts for local project
 
 In the project directory, you can run:
 
