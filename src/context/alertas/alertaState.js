@@ -2,12 +2,10 @@ import React, { useReducer } from 'react'
 import alertaContext from './alertaContext';
 import alertaReducer from './alertaReducer'
 import * as types from '../../types'
-import { uuid } from 'uuidv4'
 
 
 const AlertaState = props => {
 
-    const alerta = null
     const initialState = {
         alertas: [],
 

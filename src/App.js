@@ -27,7 +27,7 @@ function App() {
               <Switch>
                   <Route exact path='/' component={Login} />
                   <Route exact path='/nueva-cuenta' component={NuevaCuenta} />
-                  <RutaPrivada exact path='/proyectos' component={Proyectos} /> // HOC
+                  <RutaPrivada exact path='/proyectos' component={Proyectos} /> {/* HOC */}
               </Switch>
             </Router>
           </AuthState>

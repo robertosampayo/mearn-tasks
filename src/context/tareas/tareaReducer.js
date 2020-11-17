@@ -5,38 +5,37 @@ export default (state, action) => {
 
         case types.TAREAS_PROYECTO:
             return {
-                ... state,
-                tareasproyecto: state.tareas.filter(tarea => tarea.proyectoId === action.payload)
+                ...state,
+                tareasproyecto: action.payload
             }
         case types.AGREGAR_TAREA:
             return {
-                ... state,
-                tareas: [ action.payload, ...state.tareas ]
+                ...state,
+                tareasproyecto: [ action.payload, ...state.tareasproyecto ]
             }
         case types.VALIDAR_TAREA:
             return {
-                ... state,
+                ...state,
                 errortarea: true
             }
         case types.ELIMINAR_TAREA:
             return {
-                ... state,
-                tareas: state.tareas.filter(tarea => tarea.id !== action.payload)
+                ...state,
+                tareasproyecto: state.tareasproyecto.filter(tarea => tarea._id !== action.payload)
             }
         case types.ACTUALIZAR_TAREA:
-        case types.ESTADO_TAREA:
             return {
-                ... state,
-                tareas: state.tareas.map(tarea => tarea.id === action.payload.id ? action.payload :tarea),
-                tareaseleccionada:null
+                ...state,
+                tareasproyecto: state.tareasproyecto.map(tarea => tarea._id === action.payload._id ? action.payload :tarea),
+                // tareaseleccionada:null
             }
         case types.TAREA_ACTUAL:
             return {
-                ... state, tareaseleccionada: action.payload
+                ...state, tareaseleccionada: action.payload
             }      
         case types.LIMPIAR_TAREA:
             return {
-                ... state, tareaseleccionada: null
+                ...state, tareaseleccionada: null
             }          
        
         default:

@@ -24,7 +24,7 @@ const NuevaCuenta = (props) => {
             mostrarAlerta(mensaje.msg, mensaje.categoria);
         }
 
-    }, [mensaje, autenticado, props.history])
+    }, [mensaje, autenticado, props.history, mostrarAlerta])
 
 
     const [usuario, guardarUsuario] = useState({

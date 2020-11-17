@@ -2,7 +2,6 @@ import React, { useReducer } from 'react'
 import authContext from './authContext';
 import authReducer from './authReducer'
 import * as types from '../../types'
-import { uuid } from 'uuidv4'
 import clienteAxios from '../../config/axios'
 import tokenAuth from '../../config/token';
 

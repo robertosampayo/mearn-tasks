@@ -13,7 +13,7 @@ const ProyectoState = props => {
         proyectos: [],
         formulario : false,
         errorformulario: false,
-        proyecto: null,
+        proyecto: [],
         mensaje: null
     }
 

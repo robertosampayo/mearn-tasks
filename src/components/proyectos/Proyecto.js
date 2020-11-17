@@ -1,7 +1,6 @@
-import React, { useContext,useEffect  } from 'react'
+import React, { useContext  } from 'react'
 import proyectoContext from '../../context/proyectos/proyectoContext'
 import tareaContext from '../../context/tareas/tareaContext'
-import AuthContext from '../../context/autenticacion/authContext'
 
 const Proyecto = ({proyecto}) =>{
     // Obtener el state de proyectos
